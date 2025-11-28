@@ -1,10 +1,7 @@
 import json
 import os
 
-
-
 file_name = "data/user.json"
-file_name2 = "data/xona.json"
 
 if not os.path.exists(file_name):
     with open(file_name, "w") as f:
@@ -12,7 +9,9 @@ if not os.path.exists(file_name):
 
 
 def register():
-    username = int(input("Foydalanuvchi nomini kiriting: "))
+    username = int(input("Ism kiriting: "))
+    familiya = int(input("Familiya kiriting: "))
+    telefon = int(input("Telefon kiriting: "))
     password = int(input("Parol kiriting: "))
 
     with open(file_name, "r") as f:
@@ -22,10 +21,12 @@ def register():
         if user["username"] == username:
             print("Bu foydalanuvchi allaqachon mavjud!")
             return
+        elif  user["telefon"] == telefon:
+            print("Bu raqam allaqachon mavjud")
 
-    users.append({"username": username, "password": password})
+    users.append({"username": username, "familiya": familiya, "telefon": telefon, "password": password})
 
     with open(file_name, "w") as f:
-        json.dump(users, f, indent=4)
+        json.dump(users, f, indent=4)   
 
     print("Muvaffaqiyatli ro'yxatdan o'tdingiz")

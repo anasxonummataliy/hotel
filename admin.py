@@ -14,8 +14,7 @@ def admin():
             1 - Xonalar
             2 - Barcha bronlar
             3 - Hisobot
-            4 - 
-            5 - 
+            4 - Mijozlar ro'yhati
             0 - Chiqish
             Tanlov: """)
             if tanlov == 1:
