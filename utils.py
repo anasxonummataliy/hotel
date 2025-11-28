@@ -15,8 +15,8 @@ def draw_box(matn: str, rang="green"):
     print(colored(f"└{chiziq}┘", rang))
 
 
-def show_progres(message: str):
-    for i in range(1, 101):
-        time.sleep(0.01)
-        bar = "█" * (i // 2)
-        print(f"\r [{bar}{' ' * (50 - len(bar))}] {i}% {message}", end="", flush=True)
+# def show_progres(message: str):
+#     for i in range(1, 101):
+#         time.sleep(0.01)
+#         bar = "█" * (i // 2)
+#         print(f"\r [{bar}{' ' * (50 - len(bar))}] {i}% {message}", end="", flush=True)
