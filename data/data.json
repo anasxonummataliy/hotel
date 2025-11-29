@@ -1,0 +1,40 @@
+{
+    "xonalar": [
+      {
+        "raqam": 101,
+        "tur": "Oddiy",
+        "holat": "Bo'sh",
+        "narx": 150000
+      },
+      {
+        "raqam": 102,
+        "tur": "Lux",
+        "holat": "Band",
+        "narx": 250000
+      }
+    ],
+    "bronlar": [
+      {
+        "id": 1,
+        "mijoz_id": 1,
+        "xona": 102,
+        "kelish": "28.11.2025",
+        "ketish": "30.11.2025"
+      }
+    ],
+    "mijozlar": [
+      {
+        "id": 1,
+        "ism": "Ali",
+        "familiya": "Aliyev",
+        "telefon": "+998901234567",
+        "login" : "ali1234",
+        "parol": "12345"
+      }
+    ],
+    "admin": {
+      "login": "admin",
+      "parol": "12345"
+    }
+}
+  

@@ -1,5 +1,4 @@
 import json
-
 file_name = "data/user.json"
 
 def login():
