@@ -9,15 +9,15 @@ def main():
         3 - Admin
         """)
         try:
-            tanlov = int(input("Tanlovingizni kiriting: "))
-            if tanlov == 1:
+            tanlov = input("Tanlovingizni kiriting: ")
+            if tanlov == "1":
                 register()
-            elif tanlov == 2:
+            elif tanlov == "2":
                 login()
-            elif tanlov == 3:
+            elif tanlov == "3":
                 admin()
-            elif tanlov == 0:
-                print("Dastirdan chiqdingiz")
+            elif tanlov == "0":
+                print("Dasturdan chiqdingiz")
                 break
             else:
                 print("Notogri tanlov")
