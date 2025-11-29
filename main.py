@@ -16,6 +16,9 @@ def main():
                 login()
             elif tanlov == 3:
                 admin()
+            elif tanlov == 0:
+                print("Dastirdan chiqdingiz")
+                break
             else:
                 print("Notogri tanlov")
         except ValueError:
