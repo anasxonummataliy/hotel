@@ -1,4 +1,6 @@
 import json
+from foydalanuvchi import Menu
+
 file_name = "data/user.json"
 
 def login():
@@ -10,6 +12,6 @@ def login():
 
     for user in users:
         if user["username"] == username and user["password"] == password:
-            pass
+            Menu
             return 
     print("Notogri login yoki parol!")
