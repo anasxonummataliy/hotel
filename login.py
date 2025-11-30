@@ -13,7 +13,7 @@ def login():
 
         for user in users:
             if user["username"] == username and user["password"] == password:
-                
+                Menu()
                 return 
         print("Notogri login yoki parol!")
     except ValueError:

@@ -1,7 +1,6 @@
 import json
 import os
 
-file_name = "data/user.json"
 file_name = "data/data.json"
 
 class Data:
