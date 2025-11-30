@@ -18,6 +18,8 @@ class Data:
         with open(file_name, "r") as f:
             data = json.load(f)
             return data
+        
+    
 
 
 class Menu(Data):
