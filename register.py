@@ -19,7 +19,7 @@ def register():
             users = json.load(f)
 
         for user in users:
-            if user["username"] == username or ["familiya"] == familiya:
+            if user["username"] == username and ["familiya"] == familiya:
                 print("Bu foydalanuvchi allaqachon mavjud!")
                 return
             elif  user["telefon"] == telefon:

@@ -20,30 +20,43 @@ class Data:
             return data
         
     
-
-
-class Menu(Data):
-    def start(self):
-        while True:
-            print("""
+class Menu:
+    def __init__(self,username,parol):
+        self.username=username
+        self.parol=parol
+        
+    
+    def korsatish(self):
+         print("""
             1 - Bo'sh xonalar
             2 - Bron qilish
             3 - Mening bronlarim
             4 - Profilim
             0 - Chiqish
             """)
-            try:
-                tanlov = int(input("Tanlang: "))
+        
+# class Menu(Data):
+#     def start(self):
+#         while True:
+#             print("""
+#             1 - Bo'sh xonalar
+#             2 - Bron qilish
+#             3 - Mening bronlarim
+#             4 - Profilim
+#             0 - Chiqish
+#             """)
+#             try:
+#                 tanlov = int(input("Tanlang: "))
 
-                if tanlov == 1:
-                    print("Bo'sh xonalar:")
-                    print(self.bosh_xonalar())
+#                 if tanlov == 1:
+#                     print("Bo'sh xonalar:")
+#                     print(self.bosh_xonalar())
 
-                elif tanlov == 0:
-                    print("Chiqdingiz")
-                    break
+#                 elif tanlov == 0:
+#                     print("Chiqdingiz")
+#                     break
 
-                else:
-                    print("Nato'g'ri tanlov! ")
-            except ValueError:
-                print("Faqat raqam kiriting")
+#                 else:
+#                     print("Nato'g'ri tanlov! ")
+#             except ValueError:
+#                 print("Faqat raqam kiriting")

@@ -10,10 +10,11 @@ def login():
 
         with open(file_name, "r") as f:
             users = json.load(f)
-
+        print(users)
         for user in users:
             if user["username"] == username and user["password"] == password:
-                Menu
+                a=Menu(username,password)
+                a.korsatish()
                 return 
         print("Notogri login yoki parol!")
     except ValueError:
