@@ -1,6 +1,5 @@
 import json
 from utils import *
-from getpass import getpass
 from utils import *
 from storage import *
 
@@ -27,7 +26,7 @@ def register():
     fullname = input("Ism-familiya: ")
     phone = input("Telefon: ")
     login = input("Login: ")
-    password = getpass("Parol: ")
+    password = input("Parol: ")
 
     new_user = User(fullname, phone, login, password)
     new_user_data = {
@@ -43,4 +42,4 @@ def register():
 
 def login():
     users = get_data(FILE_PATH)
-    
+
