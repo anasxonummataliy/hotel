@@ -19,21 +19,38 @@ class Data:
             data = json.load(f)
             return data
         
+    def bron_qilish():
+        if not os.path.exists(file_name):
+            with open(file_name, "w") as f:
+                json.dump([], f)
+
+        with open(file_name, "r") as f:
+            data = json.load(f)
+            return data
+        
     
-class Menu:
+class Menu(Data):
     def __init__(self,username,parol):
         self.username=username
         self.parol=parol
         
     
     def korsatish(self):
-         print("""
+        print("""
             1 - Bo'sh xonalar
             2 - Bron qilish
             3 - Mening bronlarim
             4 - Profilim
             0 - Chiqish
             """)
+        try: 
+            tanlov = input('Tanlovingizni kiriting: ')
+            if tanlov == "1":
+                Data.bosh_xonalar()
+            elif tanlov == "2":
+                Data.bron_qilish()
+        except ValueError:
+            print("Faqat raqam kiriting")
         
 # class Menu(Data):
 #     def start(self):
