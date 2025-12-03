@@ -4,37 +4,28 @@ import os
 file_name = "data/data.json"
 
 class Data:
-    def __init__(self, boshXonalar, bronQilish, meningBronlarim, profilim):
-        self.boshXonalar = boshXonalar
-        self.bronQilish = bronQilish
-        self.meningBronlarim = meningBronlarim
-        self.profilim = profilim
+    def __init__(self):
+        if not os.path.exists(file_name):
+            with open(file_name, "w") as f:
+                json.dump([], f)
 
     def bosh_xonalar(self):
-        if not os.path.exists(file_name):
-            with open(file_name, "w") as f:
-                json.dump([], f)
-
         with open(file_name, "r") as f:
             data = json.load(f)
-            return data
+        return data
         
-    def bron_qilish():
-        if not os.path.exists(file_name):
-            with open(file_name, "w") as f:
-                json.dump([], f)
-
+    def bron_qilish(self):
         with open(file_name, "r") as f:
             data = json.load(f)
-            return data
-        
+        return data
     
+
 class Menu(Data):
-    def __init__(self,username,parol):
-        self.username=username
-        self.parol=parol
+    def __init__(self, username, parol):
+        super().__init__() 
+        self.username = username
+        self.parol = parol
         
-    
     def korsatish(self):
         print("""
             1 - Bo'sh xonalar
@@ -43,12 +34,11 @@ class Menu(Data):
             4 - Profilim
             0 - Chiqish
             """)
-        try: 
-            tanlov = input('Tanlovingizni kiriting: ')
-            if tanlov == "1":
-                Data.bosh_xonalar()
-            elif tanlov == "2":
-                Data.bron_qilish()
-        except ValueError:
-            print("Faqat raqam kiriting")
+
+        tanlov = input("Tanlov: ")
+
+        if tanlov == "1":
+            print(self.bosh_xonalar())
         
+        elif tanlov == "2":
+            print(self.bron_qilish())
