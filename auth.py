@@ -1,4 +1,3 @@
-import json
 from utils import *
 from utils import *
 from storage import *
@@ -23,10 +22,10 @@ class User:
 def register():
     users = get_data(FILE_PATH)
     draw_box("Ro'yhatdan o'tish")
-    fullname = input("Ism-familiya: ")
-    phone = input("Telefon: ")
-    login = input("Login: ")
-    password = input("Parol: ")
+    fullname = input(colored("Ism-familiya: ", 'magenta'))
+    phone = input(colored("Telefon: ", 'magenta'))
+    login = input(colored("Login: ", 'magenta'))
+    password = input(colored("Parol: ", 'magenta'))
 
     new_user = User(fullname, phone, login, password)
     new_user_data = {
