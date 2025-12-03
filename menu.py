@@ -1,4 +1,5 @@
-from auth import UserDatabase,AuthService
+from main import UserDatabase
+from AuthService import AuthService
 
 class App:
     def __init__(self):
