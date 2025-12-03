@@ -6,8 +6,6 @@ FILE_PATH = "./data/users.json"
 
 
 class User:
-    users = []
-
     def __init__(self, fullname, phone, login, password):
         self.fullname = fullname
         self.phone = phone
@@ -17,6 +15,8 @@ class User:
     @property
     def get_password(self):
         return self.__password
+
+
 
 
 def register():
@@ -42,3 +42,6 @@ def register():
 def login():
     users = get_data(FILE_PATH)
 
+
+class Admin:
+    pass
