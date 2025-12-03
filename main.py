@@ -18,5 +18,5 @@ def start_project():
         case '3':
             exit()
 
-if __name__ == '__main__':
-    start_project()
+
+start_project()
