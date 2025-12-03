@@ -20,6 +20,7 @@ def start_project():
                     clear_console()
                     admin()
                 case "3":
+                    print("Bizning ")
                     exit()
                 case _:
                     clear_console()

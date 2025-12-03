@@ -41,6 +41,9 @@ def register():
 
 def login():
     users = get_data(FILE_PATH)
+    login = input(colored("Login >>> ", 'magenta'))
+    password = input(colored("Parol >>> ", 'magenta'))
+
 
 
 class Admin:
