@@ -1,23 +1,23 @@
 from termcolor import colored
+import menu
 from utils import *
 from auth import *
+from menu import *
 
 
 def user():
     while True:
         while True:
             draw_box("PDP Hotel")
-            print(colored('1. Ro\'yhatdan o\'tish\n2. Kirish\n3. Orqaga ', 'yellow'))
+            print(colored('\n1. Ro\'yhatdan o\'tish\n2. Kirish\n3. Orqaga \n', 'yellow'))
             choice = input(colored('Tanlov >>> ', 'magenta'))
             match choice:
                 case '1':
-                    flag = register()
-                    if flag:
-                        print('menu()')
+                    register()
+                    menu()
                 case '2':
-                    flag = login()
-                    if flag:
-                        print('menu()')
+                    login()
+                    menu()
                 case '3':
                     return
                 case _:
@@ -25,4 +25,3 @@ def user():
                     input(colored('Davom etish uchun enterni bosing...', 'green'))
                     clear_console()
                     break
-user()

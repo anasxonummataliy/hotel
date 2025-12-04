@@ -3,5 +3,11 @@ from user import *
 from  auth import register
 
 
-# def menu():
-    # while True:
+def menu():
+    draw_box("Menu")
+    while True:
+        print()
+        break
+        
+
+menu()

@@ -3,6 +3,7 @@ from termcolor import colored
 from auth import *
 from admin import admin
 from user import user
+from menu import *
 
 
 def start_project():
@@ -14,9 +15,10 @@ def start_project():
             choice = input(colored("Tanlov >>> ", "magenta"))
             match choice:
                 case "1":
-                    register()
+                    user()
+                    clear_console()
                 case "2":
-                    login()
+                    admin()
                     clear_console()
                 case "3":
                     exit()
@@ -27,5 +29,4 @@ def start_project():
                     clear_console()
                     break
 
-
-# start_project()
+start_project()
