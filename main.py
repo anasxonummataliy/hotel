@@ -14,11 +14,10 @@ def start_project():
             choice = input(colored("Tanlov >>> ", "magenta"))
             match choice:
                 case "1":
-                    clear_console()
-                    user()
+                    register()
                 case "2":
+                    login()
                     clear_console()
-                    admin()
                 case "3":
                     exit()
                 case _:
@@ -29,4 +28,4 @@ def start_project():
                     break
 
 
-start_project()
+# start_project()
