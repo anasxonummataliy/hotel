@@ -4,10 +4,4 @@ from  auth import register
 
 
 def menu():
-    draw_box("Menu")
-    while True:
-        print()
-        break
-        
-
-menu()
+    pass
