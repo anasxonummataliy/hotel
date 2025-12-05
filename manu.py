@@ -21,7 +21,7 @@ class Menu(BaseJSON):
     def __init__(self):
         self.rooms = self.read(rooms_file)
         self.bookings = self.read(bookings_file)
-        self.profil = {"id": current_user_id, "ism": "Bekzod", "lvl": "Gold"}
+        self.profil = {"id": current_user_id, "ism": "Bekzod", "lvl": "Ota yuqori"}
 
     def show_xonalar(self):
         for i, room in enumerate(self.rooms, 1):
