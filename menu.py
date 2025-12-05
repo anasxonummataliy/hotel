@@ -20,19 +20,19 @@ def menu(user_id):
                 case "1":
                     clear_console()
                     show_room()
-                    input(colored("\nDavom etish...", 'green'))
+                    input(colored("\nDavom etish...", "green"))
                 case "2":
                     clear_console()
-                    "bookings"
-                    input(colored("\nDavom etish...", 'green'))
+                    bookings(user_id)
+                    input(colored("\nDavom etish...", "green"))
                 case "3":
                     clear_console()
                     my_bookings(user_id)
-                    input(colored("\nDavom etish...", 'green'))
+                    input(colored("\nDavom etish...", "green"))
                 case "4":
-                    # show profil
                     clear_console()
-                    input(colored("\nDavom etish...", 'green'))
+                    show_profile()
+                    input(colored("\nDavom etish...", "green"))
                 case "0":
                     print(
                         colored(
@@ -90,19 +90,27 @@ def my_bookings(user_id):
                 )
             )
 
+
 def show_profile(user_id):
-    users = get_data('data/users.json')
+    users = get_data("data/users.json")
     draw_box("Profil")
     print()
     for user in users:
-        if user['id'] == user_id:
-            print(colored('Ism : ', 'yellow'), end="")
-            print(colored(f'{user['first_name']}', 'magenta'))
-            print(colored('Familiya : ', 'yellow'), end="")
-            print(colored(f'{user['last_name']}', 'magenta'))
-            print(colored('Telefon : ', 'yellow'), end="")
-            print(colored(f'{user['phone']}', 'magenta'))
+        if user["id"] == user_id:
+            print(colored("Ism : ", "yellow"), end="")
+            print(colored(f"{user['first_name']}", "magenta"))
+            print(colored("Familiya : ", "yellow"), end="")
+            print(colored(f"{user['last_name']}", "magenta"))
+            print(colored("Telefon : ", "yellow"), end="")
+            print(colored(f"{user['phone']}", "magenta"))
             break
 
 
-show_profile(1)
+def bookings(user_id):
+    pass
+
+
+
+
+# my_bookings da muammo bor 
+
