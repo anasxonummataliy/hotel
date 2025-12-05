@@ -14,7 +14,7 @@ def save_data(file, data):
         json.dump(data, f, indent=2)
 
 
-def get_new_id(malumotlar):
-    if not malumotlar:
-        return 1
-    return max([m.get("id", 0) for m in malumotlar]) + 1
+
+
+def get_new_id(malumotlar: list[dict]):
+    return max([m.get("id", 1) for m in malumotlar]) + 1
