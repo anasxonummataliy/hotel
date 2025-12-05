@@ -40,8 +40,9 @@ def register():
     password = input(colored("Parol: ", "magenta"))
 
     new_user = User(first_name, last_name, phone, login, password)
+    user_id = get_new_id(users)
     new_user_data = {
-        "id": get_new_id(users),
+        "id": user_id,
         "first_name": new_user.first_name,
         "last_name": new_user.last_name,
         "phone": new_user.phone,
@@ -51,6 +52,7 @@ def register():
 
     users.append(new_user_data)
     save_data(FILE_PATH, users)
+    return user_id
 
 
 def login():
