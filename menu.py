@@ -7,27 +7,32 @@ from pprint import pprint
 def menu(user_id):
     while True:
         while True:
+            clear_console()
             draw_box("Mehmonxona Menu")
-            print(colored("1. Barcha xonalar", "yellow"))
+            print(colored("\n1. Bo'sh xonalar", "yellow"))
             print(colored("2. Bron qilish", "yellow"))
             print(colored("3. Mening bronlarim", "yellow"))
             print(colored("4. Profil", "yellow"))
-            print(colored("0. Chiqish", "clyan"))
+            print(colored("0. Chiqish", "cyan"))
 
-            choice = input(colored("Tanlov >>> ", "magenta"))
+            choice = input(colored("\nTanlov >>> ", "magenta"))
             match choice:
                 case "1":
+                    clear_console()
                     show_room()
-                    clear_console()
+                    input(colored("\nDavom etish...", 'green'))
                 case "2":
+                    clear_console()
                     "bookings"
-                    clear_console()
+                    input(colored("\nDavom etish...", 'green'))
                 case "3":
-                    my_bookings(user_id)
                     clear_console()
+                    my_bookings(user_id)
+                    input(colored("\nDavom etish...", 'green'))
                 case "4":
                     # show profil
                     clear_console()
+                    input(colored("\nDavom etish...", 'green'))
                 case "0":
                     print(
                         colored(
@@ -87,7 +92,17 @@ def my_bookings(user_id):
 
 def show_profile(user_id):
     users = get_data('data/users.json')
+    draw_box("Profil")
+    print()
     for user in users:
         if user['id'] == user_id:
-            pass
+            print(colored('Ism : ', 'yellow'), end="")
+            print(colored(f'{user['first_name']}', 'magenta'))
+            print(colored('Familiya : ', 'yellow'), end="")
+            print(colored(f'{user['last_name']}', 'magenta'))
+            print(colored('Telefon : ', 'yellow'), end="")
+            print(colored(f'{user['phone']}', 'magenta'))
+            break
 
+
+show_profile(1)
