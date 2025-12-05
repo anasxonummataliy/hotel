@@ -1,9 +1,9 @@
 import json
 
 
-def get_data(fayl):
+def get_data(file):
     try:
-        with open(fayl, "r") as f:
+        with open(file, "r") as f:
             return json.load(f)
     except:
         return []
