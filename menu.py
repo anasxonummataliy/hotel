@@ -1,3 +1,4 @@
+from datetime import datetime
 from storage import *
 from utils import *
 from termcolor import colored
@@ -48,7 +49,7 @@ def menu(user_id):
                     )
 
 
-def show_room():
+def show_available_rooms():
     rooms = get_data("data/rooms.json")
     draw_box("Bo'sh xonalar")
     print()
@@ -107,10 +108,62 @@ def show_profile(user_id):
 
 
 def bookings(user_id):
+    show_available_rooms()
     pass
+#         show_available_rooms()
+#         try:
+#             tanlov = int(input("Qaysi xonani bron qilasiz? (raqam kiriting): "))
+#         except ValueError:
+#             print("Raqam kiriting!")
+#             return
+
+#         available_rooms = [r for r in rooms if r["status"] == "Available"]
+#         if tanlov < 1 or tanlov > len(available_rooms):
+#             print("Noto'g'ri tanlov!")
+#             return
+
+#         tanlangan = available_rooms[tanlov - 1]
+
+#         check_in = input("Check-in sanasini kiriting (YYYY-MM-DD): ")
+#         check_out = input("Check-out sanasini kiriting (YYYY-MM-DD): ")
+
+#         try:
+#             date_in = datetime.strptime(check_in, "%Y-%m-%d")
+#             date_out = datetime.strptime(check_out, "%Y-%m-%d")
+#             if date_out <= date_in:
+#                 print("Check-out sanasi check-in sanasidan oldin bo'lishi mumkin emas!")
+#                 return
+#         except:
+#             print("Sanani YYYY-MM-DD formatida kiriting!")
+#             return
+
+#         total_days = (date_out - date_in).days
+#         total_price = total_days * tanlangan["price"]
+
+#         booking_id = 1
+#         if bookings:
+#             booking_id = max(b["id"] for b in bookings) + 1
+
+#         new_booking = {
+#             "id": booking_id,
+#             "user_id": profil["id"],
+#             "room_id": tanlangan["id"],
+#             "check_in": check_in,
+#             "check_out": check_out,
+#             "total_price": total_price,
+#             "status": "Pending",
+#         }
+
+#         bookings.append(new_booking)
+#         write(bookings_file, bookings)
+
+#         tanlangan["status"] = "Occupied"
+#         write(rooms_file, rooms)
+
+#         print(f"Xona {tanlangan['number']} muvaffaqiyatli bron qilindi!")
+#         print(f"Umumiy narx: {total_price} so'm. Status: Pending")
 
 
-
-
-# my_bookings da muammo bor 
+# my_bookings da muammo bor
 # profile orqali password o'zgartirish kerak
+# bronlar yo'q bo'lsa bronlar yo'q deyishi kerak
