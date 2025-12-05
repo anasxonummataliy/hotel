@@ -85,9 +85,30 @@ def register():
 
 
 def login():
-    users = get_data(FILE_PATH)
-    login = input(colored("Login >>> ", "magenta"))
-    password = input(colored("Parol >>> ", "magenta"))
+    while True:
+        clear_console()
+        users = get_data(FILE_PATH)
+        draw_box("Tizimga kirish!")
+        while True:
+            log = input(colored("Login >>> ", "magenta"))
+            if len(log) < 6:
+                print(colored("❌ Login kamida 6 ta belgi bo'lishi kerak!", "red"))
+            else:
+                break
+        while True:
+            password = input(colored("Parol >>> ", "magenta"))
+            if len(password) < 6:
+                print(colored("❌ Parol kamida 6 ta belgi bo'lishi kerak!", "red"))
+            else:
+                break
+
+        for user in users:
+            if user["login"] == log and user["password"] == password:
+                clear_console()
+                print(colored(f"✔ Xush kelibsiz, {user['fist_name']}!", "green"))
+                return
+
+        print(colored("❌ Login yoki parol noto'g'ri!", "red"))
 
 
 class Admin:
