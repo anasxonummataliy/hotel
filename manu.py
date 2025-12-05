@@ -128,7 +128,7 @@ class User(Menu):
                 print("Dastur tugadi.")
                 break
             else:
-                print("Noto‘g‘ri tanlov!")
+                print("Noto'g'ri tanlov!")
 
 user = User()
 user.start()
