@@ -42,7 +42,7 @@ class Menu(BaseJSON):
 
         available_rooms = [r for r in self.rooms if r['status'] == 'Available']
         if tanlov < 1 or tanlov > len(available_rooms):
-            print("Noto‘g‘ri tanlov!")
+            print("Noto'g'ri tanlov!")
             return
 
         tanlangan = available_rooms[tanlov-1]
@@ -54,7 +54,7 @@ class Menu(BaseJSON):
             date_in = datetime.strptime(check_in, "%Y-%m-%d")
             date_out = datetime.strptime(check_out, "%Y-%m-%d")
             if date_out <= date_in:
-                print("Check-out sanasi check-in sanasidan oldin bo‘lishi mumkin emas!")
+                print("Check-out sanasi check-in sanasidan oldin bo'lishi mumkin emas!")
                 return
         except:
             print("Sanani YYYY-MM-DD formatida kiriting!")
