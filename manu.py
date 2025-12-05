@@ -4,7 +4,8 @@ from datetime import datetime
 
 rooms_file = 'data/room.json'
 bookings_file = 'data/bookings.json'
-current_user_id = 1
+users_file = 'data/user.json'
+current_user_id = 1  
 
 class BaseJSON:
     def read(self, file_name):
@@ -21,7 +22,8 @@ class Menu(BaseJSON):
     def __init__(self):
         self.rooms = self.read(rooms_file)
         self.bookings = self.read(bookings_file)
-        self.profil = {"id": current_user_id, "ism": "Bekzod", "lvl": "Gold"}
+        self.users = self.read(users_file)
+        self.profil = next((u for u in self.users if u["id"] == current_user_id), {"id": current_user_id, "ism": "Bekzod", "lvl": "Gold"})
 
     def show_xonalar(self):
         for i, room in enumerate(self.rooms, 1):
@@ -42,7 +44,7 @@ class Menu(BaseJSON):
 
         available_rooms = [r for r in self.rooms if r['status'] == 'Available']
         if tanlov < 1 or tanlov > len(available_rooms):
-            print("Noto'g'ri tanlov!")
+            print("Noto‘g‘ri tanlov!")
             return
 
         tanlangan = available_rooms[tanlov-1]
@@ -54,7 +56,7 @@ class Menu(BaseJSON):
             date_in = datetime.strptime(check_in, "%Y-%m-%d")
             date_out = datetime.strptime(check_out, "%Y-%m-%d")
             if date_out <= date_in:
-                print("Check-out sanasi check-in sanasidan oldin bo'lishi mumkin emas!")
+                print("Check-out sanasi check-in sanasidan oldin bo‘lishi mumkin emas!")
                 return
         except:
             print("Sanani YYYY-MM-DD formatida kiriting!")
