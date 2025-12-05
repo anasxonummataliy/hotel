@@ -1,8 +1,7 @@
 from termcolor import colored
-import menu1
 from utils import *
 from auth import *
-from menu1 import *
+from menu import menu
 
 
 def user():
@@ -13,11 +12,11 @@ def user():
             choice = input(colored("Tanlov >>> ", "magenta"))
             match choice:
                 case "1":
-                    register()
-                    menu1()
+                    user_id = register()
+                    menu(user_id)
                 case "2":
                     login()
-                    menu1()
+                    menu()
                 case "3":
                     return
                 case _:
