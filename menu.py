@@ -20,7 +20,7 @@ def menu(user_id):
             match choice:
                 case "1":
                     clear_console()
-                    show_room()
+                    show_available_rooms()
                     input(colored("\nDavom etish...", "green"))
                 case "2":
                     clear_console()
