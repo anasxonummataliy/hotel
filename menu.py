@@ -113,4 +113,4 @@ def bookings(user_id):
 
 
 # my_bookings da muammo bor 
-
+# profile orqali password o'zgartirish kerak
