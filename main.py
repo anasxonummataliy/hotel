@@ -9,7 +9,7 @@ def start_project():
     while True:
         while True:
             draw_box("PDP Hotel")
-            print()
+            print() 
             print(colored("1. Mijoz\n2. Admin\n3. Chiqish\n", "yellow"))
             choice = input(colored("Tanlov >>> ", "magenta"))
             match choice:
