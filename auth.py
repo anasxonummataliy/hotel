@@ -64,7 +64,7 @@ def register():
 
         while True:
             password = input(colored("Parol >>> ", "magenta"))
-            if len(password) < 6:
+            if len(password) < 5:
                 print(colored("❌ Parol kamida 6 ta belgi bo'lishi kerak!", "red"))
             else:
                 break
