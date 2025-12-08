@@ -6,7 +6,7 @@
         "check_in": "2024-12-10",
         "check_out": "2024-12-15",
         "total_price": 2500000,
-        "status": "Confirmed"
+        "status": ""
     },
     {
         "id": 2,
@@ -19,7 +19,7 @@
     },
     {
         "id": 3,
-        "user_id": 3,
+        "user_id": 1,
         "room_id": 6,
         "check_in": "2024-12-30",
         "check_out": "2025-01-05",
