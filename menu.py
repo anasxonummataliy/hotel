@@ -108,8 +108,21 @@ def show_profile(user_id):
 
 
 def bookings(user_id):
-    show_available_rooms()
-    pass
+    rooms = get_data('data/rooms.json')
+    while True:
+        show_available_rooms()
+        while True:
+            choice = input(colored("Qaysi xonani bron qilasiz? (raqam kiriting) >>> ", "magenta"))
+            available_rooms = [room for room in rooms if room['status']== 'Bo\'sh']
+            available_rooms_numbers = [num['number'] for num in available_rooms]
+            if choice.isdigit() or int(choice) not in available_rooms_numbers:
+                print(colored("Xato raqam kiritdingiz.\nQayta kiriting❗️", "red"))
+                break
+            return
+    
+bookings(1)
+
+
 #         show_available_rooms()
 #         try:
 #             tanlov = int(input("Qaysi xonani bron qilasiz? (raqam kiriting): "))
