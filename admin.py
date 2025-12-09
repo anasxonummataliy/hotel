@@ -8,6 +8,8 @@ class Admin:
     def login(self):
         while True:
             while True:
+                clear_console()
+                draw_box("ADMIN PANEL")
                 login = input(colored("\nLogin >>> ", 'magenta'))
                 password = input(colored("Parol >>> ", 'magenta'))
                 if login == self._login:
@@ -36,10 +38,7 @@ obj_admin = Admin()
 
 def admin():
     while True:
-        draw_box("ADMIN PANEL")
         obj_admin.login()
         obj_admin.menu()
-
-
 
 admin()
