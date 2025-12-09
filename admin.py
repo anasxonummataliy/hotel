@@ -34,7 +34,6 @@ class Admin:
 
 obj_admin = Admin()
 
-
 def admin():
     while True:
         draw_box("ADMIN PANEL")
