@@ -110,6 +110,3 @@ def login():
 
         print(colored("❌ Login yoki parol noto'g'ri!", "red"))
 
-
-class Admin:
-    pass
