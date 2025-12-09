@@ -252,18 +252,8 @@ def show_profile(user_id):
     for user in users:
         if user["id"] == user_id:
             print()
-            print(
-                colored("Ism         : ", "yellow")
-                + colored(user["first_name"], "magenta")
-            )
-            print(
-                colored("Familiya    : ", "yellow")
-                + colored(user["last_name"], "magenta")
-            )
-            print(
-                colored("Telefon     : ", "yellow") + colored(user["phone"], "magenta")
-            )
-            print(
-                colored("Login       : ", "yellow") + colored(user["login"], "magenta")
-            )
+            print(colored("Ism >>> ", "yellow")+ colored(user["first_name"], "magenta"))
+            print(colored("Familiya >>> ", "yellow")+ colored(user["last_name"], "magenta"))
+            print(colored("Telefon >>> ", "yellow") + colored(user["phone"], "magenta"))
+            print(colored("Login >>> : ", "yellow") + colored(user["login"], "magenta"))
             break
