@@ -8,6 +8,7 @@ class Admin:
     def login(self):
         while True:
             while True:
+                draw_box("ADMIN PANEL")
                 login = input(colored("\nLogin >>> ", 'magenta'))
                 password = input(colored("Parol >>> ", 'magenta'))
                 if login == self._login:
@@ -26,7 +27,15 @@ class Admin:
             while True:
                 clear_console()
                 draw_box('ADMIN MENU')
-                pass
+                print(colored("1. Xonalar", 'yellow'))
+                print(colored("2. Barcha bronlar", 'yellow'))
+                print(colored("3. Hisobot", 'yellow'))
+                print(colored("4. Mijozlar ro'yhati", 'yellow'))
+                print(colored("0. Chiqish", "cyan"))
+                
+                choice = input(colored("Tanlov >>> ", 'magenta'))
+
+
 
 
     
@@ -36,7 +45,6 @@ obj_admin = Admin()
 
 def admin():
     while True:
-        draw_box("ADMIN PANEL")
         obj_admin.login()
         obj_admin.menu()
 
