@@ -1,36 +1,13 @@
 from termcolor import colored
-<<<<<<< HEAD
-import menu
-from utils import *
-from auth import *
-from menu import *
-=======
 from utils import *
 from auth import *
 from menu import menu
->>>>>>> origin/main
 
 
 def user():
     while True:
         while True:
             draw_box("PDP Hotel")
-<<<<<<< HEAD
-            print(colored('\n1. Ro\'yhatdan o\'tish\n2. Kirish\n3. Orqaga \n', 'yellow'))
-            choice = input(colored('Tanlov >>> ', 'magenta'))
-            match choice:
-                case '1':
-                    register()
-                    menu()
-                case '2':
-                    login()
-                    menu()
-                case '3':
-                    return
-                case _:
-                    print(colored('Siz xato ma\'lumot kiritdingiz!\n Qayta kiriting.', 'red'))
-                    input(colored('Davom etish uchun enterni bosing...', 'green'))
-=======
             print(colored("\n1. Ro'yhatdan o'tish\n2. Kirish\n3. Orqaga \n", "yellow"))
             choice = input(colored("Tanlov >>> ", "magenta"))
             match choice:
@@ -49,6 +26,5 @@ def user():
                         )
                     )
                     input(colored("Davom etish uchun enterni bosing...", "green"))
->>>>>>> origin/main
                     clear_console()
                     break

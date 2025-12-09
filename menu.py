@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-from utils import *
-from user import *
-from  auth import register
-
-
-def menu():
-    pass
-=======
 from datetime import datetime
 from storage import *
 from utils import *
@@ -189,4 +180,3 @@ bookings(1)
 # my_bookings da muammo bor
 # profile orqali password o'zgartirish kerak
 # bronlar yo'q bo'lsa bronlar yo'q deyishi kerak
->>>>>>> origin/main
