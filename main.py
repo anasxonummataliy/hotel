@@ -5,7 +5,6 @@ from termcolor import colored
 
 
 def main():
-    """Asosiy dastur"""
     while True:
         clear_console()
         draw_box("MEHMONXONA BOSHQARUV TIZIMI", "green")

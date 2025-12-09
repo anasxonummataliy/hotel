@@ -5,7 +5,6 @@ from termcolor import colored
 
 
 def menu(user_id):
-    """Asosiy mijoz menu"""
     while True:
         clear_console()
         draw_box("Mehmonxona Menu")
@@ -48,7 +47,6 @@ def menu(user_id):
 
 
 def show_available_rooms():
-    """Bo'sh xonalarni ko'rsatish"""
     rooms = get_data("data/rooms.json")
     draw_box("Bo'sh xonalar")
     print()
@@ -77,13 +75,11 @@ def show_available_rooms():
 
 
 def create_booking(user_id):
-    """Yangi bron yaratish"""
     rooms = get_data("data/rooms.json")
     bookings_list = get_data("data/bookings.json")
 
     show_available_rooms()
 
-    # Bo'sh xonalar ro'yxati
     available_rooms = [room for room in rooms if room["status"] == "Bo'sh"]
 
     if not available_rooms:
@@ -92,7 +88,6 @@ def create_booking(user_id):
 
     available_room_numbers = [room["number"] for room in available_rooms]
 
-    # Xona tanlash
     while True:
         room_choice = input(colored("\nXona raqamini kiriting >>> ", "magenta"))
         if not room_choice.isdigit():
@@ -106,12 +101,10 @@ def create_booking(user_id):
 
         break
 
-    # Tanlangan xonani topish
     selected_room = next(
         room for room in available_rooms if room["number"] == room_number
     )
 
-    # Kelish sanasi
     while True:
         check_in = input(colored("Kelish sanasi (YYYY-MM-DD) >>> ", "magenta"))
         try:
@@ -123,7 +116,6 @@ def create_booking(user_id):
         except ValueError:
             print(colored("❌ Noto'g'ri format! (Masalan: 2024-12-25)", "red"))
 
-    # Ketish sanasi
     while True:
         check_out = input(colored("Ketish sanasi (YYYY-MM-DD) >>> ", "magenta"))
         try:
@@ -139,11 +131,9 @@ def create_booking(user_id):
         except ValueError:
             print(colored("❌ Noto'g'ri format! (Masalan: 2024-12-26)", "red"))
 
-    # Kunlar sonini hisoblash
     days = (check_out_date - check_in_date).days
     total_price = days * selected_room["price"]
 
-    # Tasdiqlash
     print(colored("\n" + "═" * 50, "cyan"))
     print(
         colored(
@@ -161,7 +151,6 @@ def create_booking(user_id):
         print(colored("❌ Bron bekor qilindi.", "red"))
         return
 
-    # Bronni saqlash
     booking_id = get_new_id(bookings_list)
     new_booking = {
         "id": booking_id,
@@ -178,7 +167,6 @@ def create_booking(user_id):
     bookings_list.append(new_booking)
     save_data("data/bookings.json", bookings_list)
 
-    # Xona holatini o'zgartirish
     for room in rooms:
         if room["id"] == selected_room["id"]:
             room["status"] = "Band"
@@ -218,7 +206,6 @@ def my_bookings(user_id):
             )
         )
 
-    # Bronni bekor qilish
     print()
     cancel = input(colored("Bronni bekor qilmoqchimisiz? (ha/yo'q): ", "magenta"))
     if cancel.lower() == "ha":
@@ -226,7 +213,6 @@ def my_bookings(user_id):
 
 
 def cancel_booking(user_id, bookings_list):
-    """Bronni bekor qilish"""
     booking_id = input(
         colored("Bekor qilinadigan bron ID sini kiriting >>> ", "magenta")
     )
@@ -245,7 +231,6 @@ def cancel_booking(user_id, bookings_list):
 
             booking["status"] = "Bekor qilingan"
 
-            # Xonani bo'shatish
             rooms = get_data("data/rooms.json")
             for room in rooms:
                 if room["id"] == booking["room_id"]:
@@ -261,7 +246,6 @@ def cancel_booking(user_id, bookings_list):
 
 
 def show_profile(user_id):
-    """Foydalanuvchi profilini ko'rsatish"""
     users = get_data("data/users.json")
     draw_box("Profil")
 

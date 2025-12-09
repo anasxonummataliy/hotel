@@ -6,10 +6,9 @@ from datetime import datetime
 class Admin:
     def __init__(self):
         self._login = "admin"
-        self.__password = "admin123"  # Xavfsizlik uchun
+        self.__password = "admin123"
 
     def login(self):
-        """Admin tizimga kirish"""
         clear_console()
         draw_box("ADMIN PANEL")
 
@@ -26,7 +25,6 @@ class Admin:
             return False
 
     def menu(self):
-        """Admin menu"""
         while True:
             clear_console()
             draw_box("ADMIN MENU")
@@ -61,7 +59,6 @@ class Admin:
                     input(colored("Davom etish uchun Enter...", "cyan"))
 
     def rooms_management(self):
-        """Xonalar boshqaruvi menu"""
         while True:
             clear_console()
             draw_box("Xonalar Boshqaruvi")
@@ -97,7 +94,6 @@ class Admin:
                     input(colored("Davom etish uchun Enter...", "cyan"))
 
     def get_all_rooms(self):
-        """Barcha xonalarni ko'rsatish"""
         rooms = get_data("data/rooms.json")
         draw_box("Barcha Xonalar")
         print()
@@ -121,11 +117,9 @@ class Admin:
             )
 
     def add_room(self):
-        """Yangi xona qo'shish"""
         draw_box("Yangi Xona Qo'shish")
         rooms = get_data("data/rooms.json")
 
-        # Xona raqami
         while True:
             number = input(colored("\nXona raqami >>> ", "magenta"))
             if not number.isdigit():
@@ -138,7 +132,6 @@ class Admin:
                 continue
             break
 
-        # Xona turi
         print(colored("\nXona turlari:", "cyan"))
         print(colored("1. Standart", "yellow"))
         print(colored("2. Lux", "yellow"))
@@ -157,13 +150,11 @@ class Admin:
 
         room_type, default_price = room_types[type_choice]
 
-        # Narx
         price_input = input(
             colored(f"Narx (standart: {default_price:,} so'm) >>> ", "magenta")
         )
         price = int(price_input) if price_input.isdigit() else default_price
 
-        # Yangi xona
         room_id = get_new_id(rooms)
         new_room = {
             "id": room_id,
@@ -179,7 +170,6 @@ class Admin:
         print(colored("\n✔ Xona muvaffaqiyatli qo'shildi!", "green"))
 
     def delete_room(self):
-        """Xonani o'chirish"""
         self.get_all_rooms()
 
         room_id = input(colored("\nO'chiriladigan xona ID si >>> ", "magenta"))
@@ -210,7 +200,6 @@ class Admin:
         print(colored("❌ Xona topilmadi!", "red"))
 
     def update_room_status(self):
-        """Xona holatini o'zgartirish"""
         self.get_all_rooms()
 
         room_id = input(colored("\nXona ID si >>> ", "magenta"))
@@ -242,7 +231,6 @@ class Admin:
         print(colored("❌ Xona topilmadi!", "red"))
 
     def get_all_bookings(self):
-        """Barcha bronlarni ko'rsatish"""
         draw_box("Barcha Bronlar")
         bookings = get_data("data/bookings.json")
 
@@ -273,23 +261,19 @@ class Admin:
             )
 
     def show_report(self):
-        """Hisobot ko'rsatish"""
         draw_box("Hisobot")
 
         rooms = get_data("data/rooms.json")
         bookings = get_data("data/bookings.json")
 
-        # Xonalar statistikasi
         total_rooms = len(rooms)
         available_rooms = sum(1 for room in rooms if room["status"] == "Bo'sh")
         occupied_rooms = total_rooms - available_rooms
 
-        # Bronlar statistikasi
         active_bookings = sum(1 for b in bookings if b["status"] == "Faol")
         cancelled_bookings = sum(1 for b in bookings if b["status"] == "Bekor qilingan")
         total_income = sum(b["total_price"] for b in bookings if b["status"] == "Faol")
 
-        # Bugungi bronlar
         today = datetime.now().strftime("%Y-%m-%d")
         today_bookings = sum(
             1 for b in bookings if b["check_in"] == today and b["status"] == "Faol"
@@ -323,7 +307,6 @@ class Admin:
         print(colored("═" * 50, "cyan"))
 
     def get_all_customers(self):
-        """Barcha mijozlarni ko'rsatish"""
         draw_box("Mijozlar Ro'yhati")
         users = get_data("data/users.json")
 

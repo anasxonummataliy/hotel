@@ -30,7 +30,6 @@ class User:
 
 
 def register():
-    """Foydalanuvchi ro'yxatdan o'tkazish"""
     clear_console()
     users = get_data(FILE_PATH)
     draw_box("Ro'yhatdan o'tish")
@@ -38,7 +37,6 @@ def register():
     first_name = input(colored("Ism >>> ", "magenta"))
     last_name = input(colored("Familiya >>> ", "magenta"))
 
-    # Telefon raqam tekshirish
     while True:
         phone = input(colored("Telefon (exp: +998940581306) >>> ", "magenta"))
         if phone.startswith("+998") and len(phone) == 13 and phone[1:].isdigit():
@@ -46,14 +44,12 @@ def register():
         else:
             print(colored("❌ Noto'g'ri formatda! Qayta kiriting.", "red"))
 
-    # Login tekshirish
     while True:
         login = input(colored("Login >>> ", "magenta"))
         if len(login) < 6:
             print(colored("❌ Login kamida 6 ta belgi bo'lishi kerak!", "red"))
             continue
 
-        # Mavjud login tekshirish
         if any(user["login"] == login for user in users):
             print(colored("❌ Bu login band! Boshqa login kiriting.", "red"))
         else:

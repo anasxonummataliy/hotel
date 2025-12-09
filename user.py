@@ -5,7 +5,6 @@ from menu import menu
 
 
 def user():
-    """Mijoz qismi asosiy funksiya"""
     while True:
         clear_console()
         draw_box("PDP Hotel")
