@@ -20,3 +20,5 @@ def show_progres(message: str):
         time.sleep(0.01)
         bar = "█" * (i // 2)
         print(f"\r [{bar}{' ' * (50 - len(bar))}] {i}% {message}", end="", flush=True)
+
+
