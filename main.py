@@ -1,33 +1,32 @@
 from utils import *
-from termcolor import colored
-from auth import *
-from admin import admin
 from user import user
+from admin import admin
+from termcolor import colored
 
 
-def start_project():
+def main():
     while True:
-        while True:
-            draw_box("PDP Hotel")
-            print()
-            print(colored("1. Mijoz\n2. Admin\n3. Chiqish\n", "yellow"))
-            choice = input(colored("Tanlov >>> ", "magenta"))
-            match choice:
-                case "1":
-                    clear_console()
-                    user()
-                case "2":
-                    clear_console()
-                    admin()
-                case "3":
-                    print("Bizning ")
-                    exit()
-                case _:
-                    clear_console()
-                    print(colored("Xato ma'lumot kiritdingiz❗️ \nQayta kiriting.", "red"))
-                    input(colored("Davom etish uchun ENTERni bosing...", "green"))
-                    clear_console()
-                    break
+        clear_console()
+        draw_box("MEHMONXONA BOSHQARUV TIZIMI", "green")
+
+        print(colored("\n1. Mijoz", "yellow"))
+        print(colored("2. Admin", "yellow"))
+        print(colored("0. Chiqish", "cyan"))
+
+        choice = input(colored("\nTanlov >>> ", "magenta"))
+
+        match choice:
+            case "1":
+                user()
+            case "2":
+                admin()
+            case "0":
+                print(colored("\n✔ Dastur tugatildi. Xayr! 👋", "green"))
+                exit()
+            case _:
+                print(colored("\n❌ Noto'g'ri tanlov! Qayta kiriting.", "red"))
+                input(colored("Davom etish uchun Enter...", "cyan"))
 
 
-start_project()
+if __name__ == "__main__":
+    main()
