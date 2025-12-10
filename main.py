@@ -22,7 +22,7 @@ def main():
                 admin()
             case "0":
                 print(colored("\n✔ Dastur tugatildi. Xayr! 👋", "green"))
-                break
+                exit()
             case _:
                 print(colored("\n❌ Noto'g'ri tanlov! Qayta kiriting.", "red"))
                 input(colored("Davom etish uchun Enter...", "cyan"))
