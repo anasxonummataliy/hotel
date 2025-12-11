@@ -5,13 +5,13 @@ from termcolor import colored
 
 
 class Hotel:
-    def __init__(self):
-        self.user_id = None
-        self.rooms_file = "data/rooms.json"
-        self.bookings_file = "data/bookings.json"
-        self.users_file = "data/users.json"
+    def __init__(self, user_id):
+        self.user_id = user_id
+        self.rooms_file = "./data/rooms.json"
+        self.bookings_file = "./data/bookings.json"
+        self.users_file = "./data/users.json"
 
-    def menu(self, user_id):
+    def menu(self):
         while True:
             clear_console()
             draw_box("Mehmonxona Menu")

@@ -14,15 +14,16 @@ def user():
 
         choice = input(colored("\nTanlov >>> ", "magenta"))
         user = User()
-        hotel = Hotel()
         match choice:
             case "1":
                 user_id = user.register()
                 if user_id:
-                    hotel.menu(user_id)
+                    hotel=Hotel(user_id)
+                    hotel.menu()
             case "2":
-                user_id = user.login()
+                user_id = user.login_user()
                 if user_id:
+                    hotel=Hotel(user_id)
                     hotel.menu()
                 else:
                     print(colored("\n❌ Tizimga kirib bo'lmadi!", "red"))

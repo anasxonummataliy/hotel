@@ -14,5 +14,13 @@
     "phone": "+998942778292",
     "login": "xojiakbar",
     "password": "xojiakbar2806"
+  },
+  {
+    "id": 3,
+    "first_name": "qwerty",
+    "last_name": "qwerty",
+    "phone": "+998999999999",
+    "login": "qwerty",
+    "password": "qwerty"
   }
 ]
