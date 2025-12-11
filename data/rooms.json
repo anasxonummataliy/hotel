@@ -11,7 +11,7 @@
     "number": 102,
     "type": "Standart",
     "price": 300000,
-    "status": "Bo'sh"
+    "status": "Band"
   },
   {
     "id": 3,
@@ -32,6 +32,13 @@
     "number": 301,
     "type": "VIP",
     "price": 1000000,
-    "status": "Bo'sh"
+    "status": "Band"
+  },
+  {
+    "id": 6,
+    "number": 109,
+    "type": "Lux",
+    "price": 500000,
+    "status": "Band"
   }
 ]

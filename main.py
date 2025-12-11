@@ -1,7 +1,8 @@
 from utils import *
 from user import user
-from admin import admin
+from admin import Admin
 from termcolor import colored
+
 
 
 def main():
@@ -14,12 +15,13 @@ def main():
         print(colored("0. Chiqish", "cyan"))
 
         choice = input(colored("\nTanlov >>> ", "magenta"))
+        admin = Admin()
 
         match choice:
             case "1":
                 user()
             case "2":
-                admin()
+                admin.start()
             case "0":
                 print(colored("\n✔ Dastur tugatildi. Xayr! 👋", "green"))
                 exit()

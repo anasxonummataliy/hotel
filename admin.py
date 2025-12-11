@@ -7,6 +7,15 @@ class Admin:
     def __init__(self):
         self._login = "admin"
         self.__password = "admin123"
+        self.rooms_file = "data/rooms.json"
+        self.bookings_file = "data/bookings.json"
+        self.users_file = "data/users.json"
+
+    def start(self):
+        if self.login():
+            self.menu()
+        else:
+            input(colored("\nDavom etish uchun Enter...", "cyan"))
 
     def login(self):
         clear_console()
@@ -94,7 +103,7 @@ class Admin:
                     input(colored("Davom etish uchun Enter...", "cyan"))
 
     def get_all_rooms(self):
-        rooms = get_data("data/rooms.json")
+        rooms = get_data(self.rooms_file) 
         draw_box("Barcha Xonalar")
         print()
         print(
@@ -118,7 +127,7 @@ class Admin:
 
     def add_room(self):
         draw_box("Yangi Xona Qo'shish")
-        rooms = get_data("data/rooms.json")
+        rooms = get_data(self.rooms_file) 
 
         while True:
             number = input(colored("\nXona raqami >>> ", "magenta"))
@@ -165,7 +174,7 @@ class Admin:
         }
 
         rooms.append(new_room)
-        save_data("data/rooms.json", rooms)
+        save_data(self.rooms_file, rooms)  
 
         print(colored("\n✔ Xona muvaffaqiyatli qo'shildi!", "green"))
 
@@ -178,7 +187,7 @@ class Admin:
             return
 
         room_id = int(room_id)
-        rooms = get_data("data/rooms.json")
+        rooms = get_data(self.rooms_file)
 
         for room in rooms:
             if room["id"] == room_id:
@@ -193,7 +202,7 @@ class Admin:
                 )
                 if confirm.lower() == "ha":
                     rooms.remove(room)
-                    save_data("data/rooms.json", rooms)
+                    save_data(self.rooms_file, rooms) 
                     print(colored("\n✔ Xona o'chirildi!", "green"))
                 return
 
@@ -208,7 +217,7 @@ class Admin:
             return
 
         room_id = int(room_id)
-        rooms = get_data("data/rooms.json")
+        rooms = get_data(self.rooms_file)  
 
         for room in rooms:
             if room["id"] == room_id:
@@ -224,7 +233,7 @@ class Admin:
 
                 if new_status:
                     room["status"] = new_status
-                    save_data("data/rooms.json", rooms)
+                    save_data(self.rooms_file, rooms) 
                     print(colored("\n✔ Holat o'zgartirildi!", "green"))
                 return
 
@@ -232,7 +241,7 @@ class Admin:
 
     def get_all_bookings(self):
         draw_box("Barcha Bronlar")
-        bookings = get_data("data/bookings.json")
+        bookings = get_data(self.bookings_file) 
 
         if not bookings:
             print(colored("\nHali bronlar yo'q.", "yellow"))
@@ -263,8 +272,8 @@ class Admin:
     def show_report(self):
         draw_box("Hisobot")
 
-        rooms = get_data("data/rooms.json")
-        bookings = get_data("data/bookings.json")
+        rooms = get_data(self.rooms_file)  
+        bookings = get_data(self.bookings_file) 
 
         total_rooms = len(rooms)
         available_rooms = sum(1 for room in rooms if room["status"] == "Bo'sh")
@@ -308,7 +317,7 @@ class Admin:
 
     def get_all_customers(self):
         draw_box("Mijozlar Ro'yhati")
-        users = get_data("data/users.json")
+        users = get_data(self.users_file)  # ✅
 
         if not users:
             print(colored("\nHali mijozlar yo'q.", "yellow"))
@@ -332,9 +341,3 @@ class Admin:
                     "yellow",
                 )
             )
-
-
-def admin():
-    admin_obj = Admin()
-    if admin_obj.login():
-        admin_obj.menu()
