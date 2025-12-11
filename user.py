@@ -7,7 +7,7 @@ from menu import *
 def user():
     while True:
         clear_console()
-        draw_box("PDP Hotel")
+        draw_box("UniHotel")
         print(colored("\n1. Ro'yhatdan o'tish", "yellow"))
         print(colored("2. Kirish", "yellow"))
         print(colored("0. Orqaga", "cyan"))
