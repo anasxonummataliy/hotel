@@ -1,7 +1,7 @@
 from termcolor import colored
 from utils import *
 from auth import *
-from menu import menu
+from menu import *
 
 
 def user():
@@ -13,16 +13,17 @@ def user():
         print(colored("0. Orqaga", "cyan"))
 
         choice = input(colored("\nTanlov >>> ", "magenta"))
-
+        user = User()
+        hotel = Hotel()
         match choice:
             case "1":
-                user_id = register()
+                user_id = user.register()
                 if user_id:
-                    menu(user_id)
+                    hotel.menu(user_id)
             case "2":
-                user_id = login()
+                user_id = user.login()
                 if user_id:
-                    menu(user_id)
+                    hotel.menu()
                 else:
                     print(colored("\n❌ Tizimga kirib bo'lmadi!", "red"))
                     input(colored("Davom etish uchun Enter...", "cyan"))
